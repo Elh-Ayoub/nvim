@@ -20,9 +20,21 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
-			lspconfig.angularls.setup({ capabilities = capabilities })
+			-- lspconfig.lua_ls.setup({ capabilities = capabilities })
+			-- lspconfig.ts_ls.setup({ capabilities = capabilities })
+			-- lspconfig.angularls.setup({ capabilities = capabilities })
+			local lspconfig_defaults = lspconfig.util.default_config
+			lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+				"force",
+				lspconfig_defaults.capabilities,
+				require("cmp_nvim_lsp").default_capabilities()
+			)
+			--
+			require("mason-lspconfig").setup_handlers({
+				function(server)
+					lspconfig[server].setup({ capabilities = capabilities })
+				end,
+			})
 			-- require("mason-lspconfig").setup_handlers({
 			-- require("mason-lspconfig").setup_handlers({
 			-- 	function(server)
