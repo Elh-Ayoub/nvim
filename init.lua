@@ -13,6 +13,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim

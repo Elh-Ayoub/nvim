@@ -17,4 +17,23 @@ vim.keymap.set("n", "<leader>sa", function()
 	vim.cmd("normal! v")
 	vim.cmd("normal! G")
 	vim.cmd("normal! $")
-end, { desc = "Select All" })
+end, { desc = "Select all file content" })
+
+-- Moving lines
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+
+-- Window jump with keeping cursor in the middle
+vim.keymap.set("n", "<C-j>", "<C-d>zz")
+vim.keymap.set("n", "<C-k>", "<C-u>zz")
+
+-- paste with losing yanked text
+vim.keymap.set("x", "<leader>p", '"_dp')
+
+-- replace word in all file
+vim.keymap.set(
+	"n",
+	"<leader>frw",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word in all the file" }
+)

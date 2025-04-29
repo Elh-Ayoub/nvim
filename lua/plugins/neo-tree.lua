@@ -6,9 +6,11 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	lazy = false,
 	config = function()
 		require("neo-tree").setup({
+			filesystem = {
+				hijack_netrw_behavior = "disabled", -- or "open_default" or "open_current"
+			},
 			source_selector = {
 				winbar = false,
 				statusline = false,
