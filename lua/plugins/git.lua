@@ -38,6 +38,9 @@ return {
 					vim.keymap.set("n", "<leader>p", function()
 						vim.cmd.Git("push")
 					end, opts)
+					vim.keymap.set("n", "<leader>c", function()
+						vim.cmd.Git("commit")
+					end, opts)
 
 					-- rebase always
 					vim.keymap.set("n", "<leader>P", function()
