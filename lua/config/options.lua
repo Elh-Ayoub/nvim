@@ -43,6 +43,6 @@ vim.opt.undofile = true
 vim.opt.termguicolors = true
 
 vim.cmd([[
-  highlight DiffAdd    guibg=#133700 guifg=NONE
+  highlight DiffAdd    guibg=#4eb01a guifg=NONE
   highlight DiffDelete guibg=#370000 guifg=NONE
 ]])
