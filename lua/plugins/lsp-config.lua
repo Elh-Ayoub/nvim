@@ -42,12 +42,12 @@ return {
 			-- 	end,
 			-- })
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show Definition" })
-			vim.keymap.set("n", "<leader>cF", vim.lsp.buf.format, { desc = "Code Format" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Format" })
 			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, { desc = "Show References" })
-			-- vim.keymap.set('i', '<C-Space>', vim.lsp.buf.completion, { desc = "Show Completions" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP Rename" })
+			vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "LSP Diagnostics" })
 		end,
 	},
 }
