@@ -35,6 +35,19 @@ return {
 					lspconfig[server].setup({ capabilities = capabilities })
 				end,
 			})
+
+			---
+			lspconfig.cssls.setup({
+				settings = {
+					css = {
+						validate = true,
+						lint = {
+							unknownAtRules = "igonre",
+						},
+					},
+				},
+			})
+			---
 			-- require("mason-lspconfig").setup_handlers({
 			-- require("mason-lspconfig").setup_handlers({
 			-- 	function(server)
