@@ -43,6 +43,11 @@ return {
 					"true",
 				},
 			},
+			["clang-format"] = {
+				prepend_args = {
+					"-style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4}",
+				},
+			},
 		},
 		default_format_opts = {
 			timeout_ms = 3000,
@@ -62,6 +67,7 @@ return {
 			css = { "biome" },
 			json = { "biome" },
 			c = { "clang-format" },
+			cpp = { "clang-format" },
 		},
 	},
 }

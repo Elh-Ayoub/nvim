@@ -36,3 +36,21 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- Safely grab the libuv loop handle
+local uv = vim.uv or vim.loop
+local timer = uv.new_timer()
+
+-- Start a background timer
+-- Arguments: (delay_before_first_run_ms, repeat_interval_ms, callback)
+timer:start(
+	1000,
+	1000,
+	vim.schedule_wrap(function()
+		-- Check if Neovim is currently in command-line mode ('c')
+		-- This prevents the background reload from breaking your active command inputs
+		if vim.fn.mode() ~= "c" then
+			vim.cmd("checktime")
+		end
+	end)
+)
